@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "run": {
+      "implementation": "./impl",
+      "schema": "./schema.json",
+      "description": "It does nothing, its just to do repo the bug"
+    }
+  }
+}

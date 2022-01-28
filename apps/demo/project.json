@@ -82,6 +82,9 @@
         "jestConfig": "apps/demo/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "custom": {
+      "executor": "./tools/executors/custom:run"
     }
   },
   "tags": []
