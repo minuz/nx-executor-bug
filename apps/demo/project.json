@@ -4,7 +4,7 @@
   "sourceRoot": "apps/demo/src",
   "prefix": "nx-bug",
   "targets": {
-    "build": {
+    "build-app": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
@@ -81,6 +81,22 @@
       "options": {
         "jestConfig": "apps/demo/jest.config.js",
         "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@angular-devkit/architect:concat",
+      "options": {
+        "targets": [
+          { "target": "demo:build-app"},
+          { "target": "demo:custom-bld" },
+          { "target": "demo:custom" }
+        ]
+      }
+    },
+    "custom-bld": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "yarn tsc ./tools/executors/custom/impl.ts"
       }
     },
     "custom": {
